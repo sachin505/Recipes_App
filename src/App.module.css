@@ -1,0 +1,4 @@
+.App{
+    display: flex; /* Use flexbox */
+    justify-content: space-between; /* Align items with space between */
+}
