@@ -14,8 +14,8 @@ function SideNavBar() {
   return (
     <div className={styles.sidenav}>
         { 
-          recipes.map(recipe=>
-            <RecipeTile title={recipe.title} recipe_id={recipe.id} handleClick={handleOnClick}/>
+          recipes.map((recipe,i)=>
+            <RecipeTile key={i} title={recipe.title} recipe_id={recipe.id} handleClick={handleOnClick}/>
           )
         }
     </div>

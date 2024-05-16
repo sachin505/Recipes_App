@@ -3,14 +3,21 @@ import { store } from "./redux/store"
 import SideNavBar from "./components/SideNavBar";
 import RecipeDetails from "./components/RecipeDetails";
 import styles from "./App.module.css"
+import { useEffect, useState } from "react";
 
 
 function App() {
-  const recipes=useSelector(state=>state.recipes)
+  const {recipe} = useSelector((state)=>state.currentRecipeSlice);
+  const [currentRecipe,setCurrentRecipe]=useState();  
+  console.log(currentRecipe);
+  useEffect(()=>{
+    setCurrentRecipe(recipe);
+  },[recipe])
+
   return (
     <div className={styles.App}>
       <SideNavBar />
-      <RecipeDetails />
+      {Object.keys(currentRecipe).length>1 && <RecipeDetails />}
     </div>
   )
 }
